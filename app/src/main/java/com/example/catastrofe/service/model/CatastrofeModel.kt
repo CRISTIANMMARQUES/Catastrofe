@@ -2,7 +2,7 @@ package com.example.catastrofe.service.model
 
 import com.google.gson.annotations.SerializedName
 
-class TaskModel {
+class CatastrofeModel {
 
     @SerializedName("Id")
     var id: Int = 0
