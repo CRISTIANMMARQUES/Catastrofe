@@ -1,4 +1,4 @@
-package com.example.catastrofe
+package com.example.catastrofe.view
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.catastrofe.R
 import com.example.catastrofe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

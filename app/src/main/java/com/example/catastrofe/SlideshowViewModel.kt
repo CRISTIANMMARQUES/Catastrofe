@@ -1,4 +1,4 @@
-package com.example.catastrofe.ui.slideshow
+package com.example.catastrofe
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
