@@ -4,13 +4,15 @@ import android.content.Context
 import com.example.catastrofe.R
 import com.example.catastrofe.service.listener.APIListener
 import com.example.catastrofe.service.model.CatastrofeModel
+import com.example.catastrofe.service.repository.remote.RetrofitClient
+import com.example.catastrofe.service.repository.remote.CatastrofeService
 
 
 class CatastrofeRepository(context: Context) : BaseRepository(context) {
 
-    private val remote = RetrofitClient.getService(TaskService::class.java)
+    private val remote = RetrofitClient.getService(CatastrofeService::class.java)
 
-    fun list(listener: APIListener<List<TaskModel>>) {
+    fun list(listener: APIListener<List<CatastrofeModel>>) {
         if (!isConnectionAvailable()) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
@@ -19,7 +21,7 @@ class CatastrofeRepository(context: Context) : BaseRepository(context) {
         executeCall(remote.list(), listener)
     }
 
-    fun listNext(listener: APIListener<List<TaskModel>>) {
+    fun listNext(listener: APIListener<List<CatastrofeModel>>) {
         if (!isConnectionAvailable()) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
@@ -28,7 +30,7 @@ class CatastrofeRepository(context: Context) : BaseRepository(context) {
         executeCall(remote.listNext(), listener)
     }
 
-    fun listOverdue(listener: APIListener<List<TaskModel>>) {
+    fun listOverdue(listener: APIListener<List<CatastrofeModel>>) {
         if (!isConnectionAvailable()) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
@@ -37,7 +39,7 @@ class CatastrofeRepository(context: Context) : BaseRepository(context) {
         executeCall(remote.listOverdue(), listener)
     }
 
-    fun create(task: TaskModel, listener: APIListener<Boolean>) {
+    fun create(task: CatastrofeModel, listener: APIListener<Boolean>) {
         if (!isConnectionAvailable()) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
@@ -47,7 +49,7 @@ class CatastrofeRepository(context: Context) : BaseRepository(context) {
         executeCall(call, listener)
     }
 
-    fun update(task: TaskModel, listener: APIListener<Boolean>) {
+    fun update(task: CatastrofeModel, listener: APIListener<Boolean>) {
         if (!isConnectionAvailable()) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
@@ -58,7 +60,7 @@ class CatastrofeRepository(context: Context) : BaseRepository(context) {
         executeCall(call, listener)
     }
 
-    fun load(id: Int, listener: APIListener<TaskModel>) {
+    fun load(id: Int, listener: APIListener<CatastrofeModel>) {
         if (!isConnectionAvailable()) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return

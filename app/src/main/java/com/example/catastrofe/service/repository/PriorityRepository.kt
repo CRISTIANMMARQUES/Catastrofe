@@ -4,14 +4,14 @@ import android.content.Context
 import com.example.catastrofe.R
 import com.example.catastrofe.service.listener.APIListener
 import com.example.catastrofe.service.model.PriorityModel
-import com.example.catastrofe.service.repository.local.TaskDatabase
+import com.example.catastrofe.service.repository.local.CatastrofeDatabase
 import com.example.catastrofe.service.repository.remote.PriorityService
 import com.example.catastrofe.service.repository.remote.RetrofitClient
 
 class PriorityRepository(context: Context) : BaseRepository(context) {
 
     private val remote = RetrofitClient.getService(PriorityService::class.java)
-    private val database = TaskDatabase.getDatabase(context).priorityDAO()
+    private val database = CatastrofeDatabase.getDatabase(context).priorityDAO()
 
     companion object {
         private val cache = mutableMapOf<Int, String>()

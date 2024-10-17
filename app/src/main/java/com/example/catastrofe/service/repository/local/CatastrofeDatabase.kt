@@ -12,12 +12,12 @@ abstract class CatastrofeDatabase : RoomDatabase() {
     abstract fun priorityDAO(): PriorityDAO
 
     companion object {
-        private lateinit var INSTANCE: TaskDatabase
+        private lateinit var INSTANCE: CatastrofeDatabase
 
-        fun getDatabase(context: Context): TaskDatabase {
+        fun getDatabase(context: Context): CatastrofeDatabase {
             if (!Companion::INSTANCE.isInitialized) {
-                synchronized(TaskDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(context, TaskDatabase::class.java, "tasksDB")
+                synchronized(CatastrofeDatabase::class) {
+                    INSTANCE = Room.databaseBuilder(context, CatastrofeDatabase::class.java, "tasksDB")
                         .allowMainThreadQueries()
                         .build()
                 }

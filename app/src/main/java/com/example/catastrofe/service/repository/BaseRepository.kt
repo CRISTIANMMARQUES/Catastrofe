@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.telecom.Call
 import com.example.catastrofe.R
 import com.example.catastrofe.service.constants.CatastrofeConstants
 import com.example.catastrofe.service.listener.APIListener
@@ -22,7 +21,7 @@ open class BaseRepository(val context: Context) {
     fun <T> executeCall(call: Call<T>, listener: APIListener<T>) {
         call.enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
-                if (response.code() == TaskConstants.HTTP.SUCCESS) {
+                if (response.code() == CatastrofeConstants.HTTP.SUCCESS) {
                     response.body()?.let { listener.onSuccess(it) }
                 } else {
                     listener.onFailure(failResponse(response.errorBody()!!.string()))
